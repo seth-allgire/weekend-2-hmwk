@@ -1,29 +1,31 @@
+const holeDivs = document.querySelectorAll(".mole-hole");
+let timer;
+let gameTimer = document.querySelector(".seconds");
+let time = 5;
+gameTimer.textContent = `${time}`;
+
 let startButton = document.querySelector("#start-button");
 startButton.addEventListener("click", countdown);
 startButton.addEventListener("click", holeCycle);
 
-let gameTimer = document.querySelector(".seconds");
-let time = 5;
-gameTimer.innerHTML = `${time}`;
-
 function countdown() {
-  setInterval(() => {
+  timer = setInterval(() => {
     time--;
     gameTimer.textContent = `${time}`;
-    if (time === 0) {
-      clearInterval(countdown);
+    if (time <= 0) {
+      clearInterval(timer);
+      gameTimer.textContent = `GAME OVER`;
+      console.log(gameTimer.textContent);
     }
   }, 1000);
 }
-
-const holeDivs = document.querySelectorAll(".mole-hole");
 
 function holeCycle() {
   let activeMole = holeDivs[Math.floor(Math.random() * holeDivs.length)];
   activeMole.style.backgroundColor = "#FF00FF";
   setTimeout(() => {
     activeMole.style.backgroundColor = "orange";
-    if (time <= 0) {
+    if (time === 0) {
       clearTimeout;
     } else setTimeout(holeCycle, 500);
   }, 900);
