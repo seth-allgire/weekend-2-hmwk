@@ -1,12 +1,21 @@
-const holeDivs = document.querySelectorAll(".mole-hole");
+const holes = document.querySelectorAll(".hole");
+
+let mole = document.getElementsByClassName(".mole");
+
 let timer;
+let activeHole;
+
 let gameTimer = document.querySelector(".seconds");
-let time = 5;
+let time = 20;
 gameTimer.textContent = `${time}`;
+
+let scoreKeeper = document.querySelector(".score-count");
+let score = 0;
+scoreKeeper.textContent = `${score}`;
 
 let startButton = document.querySelector("#start-button");
 startButton.addEventListener("click", countdown);
-startButton.addEventListener("click", holeCycle);
+startButton.addEventListener("click", moleCycle);
 
 function countdown() {
   timer = setInterval(() => {
@@ -20,81 +29,24 @@ function countdown() {
   }, 1000);
 }
 
-function holeCycle() {
-  let activeMole = holeDivs[Math.floor(Math.random() * holeDivs.length)];
-  activeMole.style.backgroundColor = "#FF00FF";
+function moleCycle() {
+  let activeHole = holes[Math.floor(Math.random() * holes.length)];
+  activeHole.style.backgroundColor = "#FF00FF";
+  activeHole.classList.add("mole");
   setTimeout(() => {
-    activeMole.style.backgroundColor = "orange";
+    activeHole.style.backgroundColor = "orange";
+    activeHole.classList.remove("mole");
     if (time === 0) {
       clearTimeout;
-    } else setTimeout(holeCycle, 500);
+    } else setTimeout(moleCycle, 500);
   }, 900);
 }
 
-// // // THIS TIMER STOPS AT "0"
-// countdown = setInterval(() => {
-//   time--;
-// gameTimer.innerHTML = `${time}`;
-//   if (time === 0) {
-//     clearInterval(countdown);
-//   }
-// }, 1000);
-
-// THIS TIMER WORKS WITH EVENTLISTENER
-// function countdown() {
-//   setInterval(function () {
-//     time--;
-//     gameTimer.innerHTML = `${time}`;
-//     if (time === 0) {
-//       clearInterval(countdown);
-//     }
-//   }, 1000);
-// }
-
-// holeCycle(); ???LEAVE-THIS-COMMENTED-OUT-FOREVER???
-
-// let countdown;
-// let startButton = document.querySelector("#start-button");
-// startButton.addEventListener("click", countdown);
-// startButton.addEventListener("click", holeCycle);
-
-// let gameTimer = document.querySelector(".seconds");
-// let time = 5;
-// gameTimer.innerHTML = `${time}`;
-
-// //THIS TIMER STOPS AT "0"
-// countdown = setInterval(() => {
-//   time--;
-//   gameTimer.innerHTML = `${time}`;
-//   if (time === 0) {
-//     clearInterval(countdown);
-//   }
-// }, 1000);
-
-// //THIS TIMER WORKS WITH EVENTLISTENER
-// // function countdown() {
-// //   setInterval(function () {
-// //     time--;
-// //     gameTimer.innerHTML = `${time}`;
-// //     if (time === 0) {
-// //       clearInterval(countdown);
-// //     }
-// //   }, 1000);
-// // }
-
-// // USE THIS: IT WORKS SO FAR!!!!
-
-// // holeCycle(); ???LEAVE-THIS-COMMENTED-OUT-FOREVER???
-
-// USE THIS: IT WORKS SO FAR!!!!
-// const holeDivs = document.querySelectorAll(".mole-hole");
-// let activeMole = holeDivs[Math.floor(Math.random() * holeDivs.length)];
-// function holeCycle() {
-//   activeMole.style.backgroundColor = "#FF00FF";
-//   setTimeout(() => {
-//     activeMole.style.backgroundColor = "orange";
-//     if (time === 0) {
-//       clearTimeout;
-//     } else setTimeout(holeCycle, 500);
-//   }, 900);
-// }
+holes.forEach((e) => {
+  e.addEventListener("click", () => {
+    if (e.classList.contains("mole")) {
+      score++;
+      scoreKeeper.textContent = `${score}`;
+    }
+  });
+});
