@@ -7,36 +7,42 @@
     <title>Whack-A-Mole</title>
 
     <style>
-      .container1 {
+      .time-score {
         height: 100px;
-        width: 100px;
+        width: 510px;
         display: flex;
+        flex-flow: row nowrap;
         align-items: center;
-        justify-content: center;
-        border: 2px solid black;
-        display: block;
-        margin: auto;
-        text-align: center;
+        justify-content: space-evenly;
+        margin-bottom: 15px;
       }
+      .counter {
+        display: block;
+        text-align: center;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        margin-bottom: 0px;
+      }
+
       .container {
         display: flex;
-        flex-direction: column;
         flex-wrap: wrap;
-        border: 2px solid black;
-        width: 600px;
-        height: 600px;
-        margin: 0px;
-        padding: 5px;
+        width: 510px;
+        height: 510px;
+        background-color: rgb(250, 209, 159);
+      }
+
+      .seconds,
+      .score-count {
+        font-size: 30px;
+        margin: 20px;
       }
       .mole-hole {
-        flex: 0 1 calc(20% - 4px);
-        width: 110px;
-        /* height: 75px; */
+        width: 100px;
+        height: 100px;
         border: 1px solid black;
-        /* border-radius: 100%; */
+        border-radius: 100%;
         background-color: orange;
         text-align: center;
-        margin: 0px;
       }
       button {
         width: 70px;
@@ -45,41 +51,47 @@
     </style>
   </head>
   <body>
-    <div class="container1">
-      <p>Timer</p>
-      <p class="seconds">00</p>
+    <div class="time-score">
+      <div class="counter">
+        <h2>Timer</h2>
+        <p class="seconds">20</p>
+      </div>
+      <div class="counter">
+        <h2>Score</h2>
+        <p class="score-count" id="score">0</p>
+      </div>
     </div>
 
     <div class="container">
-      <div class="mole-hole">1</div>
-      <div class="mole-hole">2</div>
-      <div class="mole-hole">3</div>
-      <div class="mole-hole">4</div>
-      <div class="mole-hole">5</div>
+      <div class="mole-hole" id="1">1</div>
+      <div class="mole-hole" id="2">2</div>
+      <div class="mole-hole" id="3">3</div>
+      <div class="mole-hole" id="4">4</div>
+      <div class="mole-hole" id="5">5</div>
 
-      <div class="mole-hole">6</div>
-      <div class="mole-hole">7</div>
-      <div class="mole-hole">8</div>
-      <div class="mole-hole">9</div>
-      <div class="mole-hole">10</div>
+      <div class="mole-hole" id="6">6</div>
+      <div class="mole-hole" id="7">7</div>
+      <div class="mole-hole" id="8">8</div>
+      <div class="mole-hole" id="9">9</div>
+      <div class="mole-hole" id="10">10</div>
 
-      <div class="mole-hole">11</div>
-      <div class="mole-hole">12</div>
-      <div class="mole-hole">13</div>
-      <div class="mole-hole">14</div>
-      <div class="mole-hole">15</div>
+      <div class="mole-hole" id="11">11</div>
+      <div class="mole-hole" id="12">12</div>
+      <div class="mole-hole" id="13">13</div>
+      <div class="mole-hole" id="14">14</div>
+      <div class="mole-hole" id="15">15</div>
 
-      <div class="mole-hole">16</div>
-      <div class="mole-hole">17</div>
-      <div class="mole-hole">18</div>
-      <div class="mole-hole">19</div>
-      <div class="mole-hole">20</div>
+      <div class="mole-hole" id="16">16</div>
+      <div class="mole-hole" id="17">17</div>
+      <div class="mole-hole" id="18">18</div>
+      <div class="mole-hole" id="19">19</div>
+      <div class="mole-hole" id="20">20</div>
 
-      <div class="mole-hole">21</div>
-      <div class="mole-hole">22</div>
-      <div class="mole-hole">23</div>
-      <div class="mole-hole">24</div>
-      <div class="mole-hole">25</div>
+      <div class="mole-hole" id="21">21</div>
+      <div class="mole-hole" id="22">22</div>
+      <div class="mole-hole" id="23">23</div>
+      <div class="mole-hole" id="24">24</div>
+      <div class="mole-hole" id="25">25</div>
     </div>
     <button id="start-button" value="Start">Start</button>
 
