@@ -73,7 +73,7 @@ function moleExpert() {
     if (time === 0) {
       clearTimeout;
     } else setTimeout(moleExpert, 400);
-  }, 700);
+  }, 675);
 }
 
 holes.forEach((e) => {
