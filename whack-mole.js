@@ -29,7 +29,7 @@ expertButton.addEventListener("click", moleExpert);
 
 let resetButton = document.querySelector("#reset-button");
 resetButton.addEventListener("click", gameReset);
-resetButton.setAttribute("disabled", "");
+resetButton.removeAttribute("disabled", "");
 
 function countdown() {
   timer = setInterval(() => {
@@ -50,6 +50,7 @@ function moleNovice() {
   let activeHole = holes[Math.floor(Math.random() * holes.length)];
   noviceButton.setAttribute("disabled", "");
   expertButton.setAttribute("disabled", "");
+  resetButton.setAttribute("disabled", "");
   activeHole.style.backgroundColor = "#f7b05b";
   activeHole.classList.add("mole");
   setTimeout(() => {
@@ -65,6 +66,7 @@ function moleExpert() {
   let activeHole = holes[Math.floor(Math.random() * holes.length)];
   noviceButton.setAttribute("disabled", "");
   expertButton.setAttribute("disabled", "");
+  resetButton.setAttribute("disabled", "");
   activeHole.style.backgroundColor = "#f7b05b";
   activeHole.classList.add("mole");
   setTimeout(() => {
