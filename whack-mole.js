@@ -7,7 +7,7 @@ let activeHole;
 
 let gameTimer = document.querySelector(".seconds");
 let time = 20;
-gameTimer.textContent = `${time}`;
+gameTimer.textContent = ":" + `${time}`;
 
 let scoreKeeper = document.querySelector(".score-count");
 let score = 0;
@@ -27,8 +27,8 @@ resetButton.addEventListener("click", gameReset);
 function countdown() {
   timer = setInterval(() => {
     time--;
-    gameTimer.textContent = `${time}`;
-    if (time <= 0) {
+    gameTimer.textContent = ":" + `${time}`;
+    if (time === 0) {
       clearInterval(timer);
       gameTimer.textContent = `GAME OVER`;
       console.log(gameTimer.textContent);
@@ -39,36 +39,30 @@ function countdown() {
 
 function moleNovice() {
   let activeHole = holes[Math.floor(Math.random() * holes.length)];
-  activeHole.style.backgroundColor = "#FF00FF";
+  activeHole.style.backgroundColor = "#f7b05b";
   activeHole.classList.add("mole");
-  noviceButton.removeEventListener("click", countdown);
-  expertButton.removeEventListener("click", countdown);
-  noviceButton.removeEventListener("click", moleNovice);
-  expertButton.removeEventListener("click", moleExpert);
   resetButton.removeEventListener("click", gameReset);
   setTimeout(() => {
-    activeHole.style.backgroundColor = "orange";
+    activeHole.style.backgroundColor = "#555358";
     activeHole.classList.remove("mole");
     if (time === 0) {
       clearTimeout;
+      resetButton.addEventListener("click", gameReset);
     } else setTimeout(moleNovice, 700);
   }, 900);
 }
 
 function moleExpert() {
   let activeHole = holes[Math.floor(Math.random() * holes.length)];
-  activeHole.style.backgroundColor = "#FF00FF";
+  activeHole.style.backgroundColor = "#f7b05b";
   activeHole.classList.add("mole");
-  noviceButton.removeEventListener("click", countdown);
-  expertButton.removeEventListener("click", countdown);
-  noviceButton.removeEventListener("click", moleNovice);
-  expertButton.removeEventListener("click", moleExpert);
   resetButton.removeEventListener("click", gameReset);
   setTimeout(() => {
-    activeHole.style.backgroundColor = "orange";
+    activeHole.style.backgroundColor = "#555358";
     activeHole.classList.remove("mole");
     if (time === 0) {
       clearTimeout;
+      resetButton.addEventListener("click", gameReset);
     } else setTimeout(moleExpert, 500);
   }, 700);
 }
@@ -86,7 +80,7 @@ function gameReset() {
   time = 20;
   score = 0;
   scoreKeeper.textContent = `${score}`;
-  gameTimer.textContent = `${time}`;
+  gameTimer.textContent = ":" + `${time}`;
   noviceButton.addEventListener("click", countdown);
   expertButton.addEventListener("click", countdown);
 }

@@ -7,6 +7,12 @@
     <title>Whack-A-Mole</title>
 
     <style>
+      header {
+        text-align: center;
+        font-size: 40px;
+        margin-top: 20px;
+      }
+
       .container {
         margin: auto;
         max-width: 510px;
@@ -23,7 +29,7 @@
       .counter {
         display: block;
         text-align: center;
-        width: 200px;
+        width: 150px;
         margin-bottom: 0px;
       }
 
@@ -36,14 +42,15 @@
         flex-wrap: wrap;
         width: 510px;
         height: 510px;
-        border: solid black 1px;
-        background-color: rgb(250, 209, 159);
+        border: solid black 3px;
+        border-radius: 5px;
+        background-color: #7b7263;
       }
 
       .seconds,
       .score-count {
         font-size: 30px;
-        margin: 20px;
+        margin: 5px;
       }
 
       .hole {
@@ -51,15 +58,15 @@
         height: 100px;
         border: 1px solid black;
         border-radius: 100%;
-        background-color: orange;
+        background-color: #555358;
         text-align: center;
       }
       button {
         width: 120px;
         height: 50px;
-        background-color: rgb(250, 209, 159);
+        background-color: #b3a999;
         border-radius: 10px;
-        box-shadow: 2px 2px black;
+        box-shadow: 2px 2px #555358;
         font-size: 20px;
         margin-top: 5px;
       }
@@ -69,7 +76,8 @@
     </style>
   </head>
   <body>
-    <div class="container font" id="whack-a-mole">
+    <header class="font container">Whack-A-Mole</header>
+    <div class="container font">
       <div class="time-score">
         <div class="counter">
           <h2>Timer</h2>
