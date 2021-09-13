@@ -17,7 +17,12 @@
         margin: auto;
         max-width: 510px;
       }
-      .time-score {
+
+      h4 {
+        margin: auto;
+      }
+
+      .time-score-result {
         height: 100px;
         width: 510px;
         display: flex;
@@ -26,9 +31,11 @@
         justify-content: space-evenly;
         margin-bottom: 15px;
       }
+
       .counter {
         display: block;
         text-align: center;
+        font-size: 25px;
         width: 150px;
         margin-bottom: 0px;
       }
@@ -49,7 +56,6 @@
 
       .seconds,
       .score-count {
-        font-size: 30px;
         margin: 5px;
       }
 
@@ -61,6 +67,16 @@
         background-color: #555358;
         text-align: center;
       }
+
+      .result {
+        visibility: hidden;
+        background-color: #7b7263;
+        color: #f7b05b;
+        text-shadow: #555358 2px 2px;
+        border: 3px solid black;
+        margin-top: 22px;
+      }
+
       button {
         width: 120px;
         height: 50px;
@@ -78,14 +94,19 @@
   <body>
     <header class="font container">Whack-A-Mole</header>
     <div class="container font">
-      <div class="time-score">
+      <div class="time-score-result">
         <div class="counter">
-          <h2>Timer</h2>
+          <h4>Timer</h4>
           <p class="seconds font">20</p>
         </div>
 
+        <div class="counter result">
+          <h4>You whacked</h4>
+          <p class="seconds font"><span></span>moles!</p>
+        </div>
+
         <div class="counter">
-          <h2>Score</h2>
+          <h4>Score</h4>
           <p class="score-count font" id="score">0</p>
         </div>
       </div>

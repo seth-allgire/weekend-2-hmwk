@@ -5,6 +5,9 @@ let mole = document.getElementsByClassName(".mole");
 let timer;
 let activeHole;
 
+let result = document.querySelector("span");
+let resultMessage = document.querySelector(".result");
+
 let gameTimer = document.querySelector(".seconds");
 let time = 20;
 gameTimer.textContent = ":" + `${time}`;
@@ -30,9 +33,9 @@ function countdown() {
     gameTimer.textContent = ":" + `${time}`;
     if (time === 0) {
       clearInterval(timer);
-      gameTimer.textContent = `GAME OVER`;
-      console.log(gameTimer.textContent);
       resetButton.addEventListener("click", gameReset);
+      result.innerText = `${score}` + " ";
+      resultMessage.style.visibility = "visible";
     }
   }, 1000);
 }
@@ -89,4 +92,5 @@ function gameReset() {
   expertButton.style.visibility = "visible";
   noviceButton.addEventListener("click", countdown);
   expertButton.addEventListener("click", countdown);
+  resultMessage.style.visibility = "hidden";
 }
