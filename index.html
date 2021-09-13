@@ -9,7 +9,7 @@
     <style>
       header {
         text-align: center;
-        font-size: 40px;
+        font-size: 30px;
         margin-top: 20px;
       }
 
@@ -23,7 +23,7 @@
       }
 
       .time-score-result {
-        height: 100px;
+        height: 75px;
         width: 510px;
         display: flex;
         flex-flow: row nowrap;
@@ -74,7 +74,6 @@
         color: #f7b05b;
         text-shadow: #555358 2px 2px;
         border: 3px solid black;
-        margin-top: 22px;
       }
 
       button {
@@ -95,7 +94,7 @@
     <header class="font container">Whack-A-Mole</header>
     <div class="container font">
       <div class="time-score-result">
-        <div class="counter">
+        <div class="counter timescore" id="time">
           <h4>Timer</h4>
           <p class="seconds font">20</p>
         </div>
@@ -105,9 +104,9 @@
           <p class="seconds font"><span></span>moles!</p>
         </div>
 
-        <div class="counter">
+        <div class="counter timescore" id="scorer">
           <h4>Score</h4>
-          <p class="score-count font" id="score">0</p>
+          <p class="score-count font">0</p>
         </div>
       </div>
 

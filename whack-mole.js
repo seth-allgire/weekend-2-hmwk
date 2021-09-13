@@ -5,6 +5,9 @@ let mole = document.getElementsByClassName(".mole");
 let timer;
 let activeHole;
 
+let scoreBox = document.querySelector("#scorer");
+let timeBox = document.querySelector("#time");
+
 let result = document.querySelector("span");
 let resultMessage = document.querySelector(".result");
 
@@ -32,12 +35,13 @@ function countdown() {
   timer = setInterval(() => {
     time--;
     gameTimer.textContent = ":" + `${time}`;
-
     if (time === 0) {
       clearInterval(timer);
       resetButton.removeAttribute("disabled", "");
       result.innerText = `${score}` + " ";
       resultMessage.style.visibility = "visible";
+      scoreBox.style.visibility = "hidden";
+      timeBox.style.visibility = "hidden";
     }
   }, 1000);
 }
@@ -89,4 +93,6 @@ function gameReset() {
   noviceButton.removeAttribute("disabled", "");
   expertButton.removeAttribute("disabled", "");
   resultMessage.style.visibility = "hidden";
+  scoreBox.style.visibility = "visible";
+  timeBox.style.visibility = "visible";
 }
