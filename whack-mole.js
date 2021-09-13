@@ -32,8 +32,7 @@ function countdown() {
       clearInterval(timer);
       gameTimer.textContent = `GAME OVER`;
       console.log(gameTimer.textContent);
-      noviceButton.removeEventListener("click", countdown);
-      expertButton.removeEventListener("click", countdown);
+      resetButton.addEventListener("click", gameReset);
     }
   }, 1000);
 }
@@ -42,6 +41,11 @@ function moleNovice() {
   let activeHole = holes[Math.floor(Math.random() * holes.length)];
   activeHole.style.backgroundColor = "#FF00FF";
   activeHole.classList.add("mole");
+  noviceButton.removeEventListener("click", countdown);
+  expertButton.removeEventListener("click", countdown);
+  noviceButton.removeEventListener("click", moleNovice);
+  expertButton.removeEventListener("click", moleExpert);
+  resetButton.removeEventListener("click", gameReset);
   setTimeout(() => {
     activeHole.style.backgroundColor = "orange";
     activeHole.classList.remove("mole");
@@ -55,6 +59,11 @@ function moleExpert() {
   let activeHole = holes[Math.floor(Math.random() * holes.length)];
   activeHole.style.backgroundColor = "#FF00FF";
   activeHole.classList.add("mole");
+  noviceButton.removeEventListener("click", countdown);
+  expertButton.removeEventListener("click", countdown);
+  noviceButton.removeEventListener("click", moleNovice);
+  expertButton.removeEventListener("click", moleExpert);
+  resetButton.removeEventListener("click", gameReset);
   setTimeout(() => {
     activeHole.style.backgroundColor = "orange";
     activeHole.classList.remove("mole");
