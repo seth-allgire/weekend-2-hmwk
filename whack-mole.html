@@ -7,6 +7,10 @@
     <title>Whack-A-Mole</title>
 
     <style>
+      .container {
+        margin: auto;
+        max-width: 510px;
+      }
       .time-score {
         height: 100px;
         width: 510px;
@@ -20,15 +24,19 @@
         display: block;
         text-align: center;
         width: 200px;
-        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
         margin-bottom: 0px;
       }
 
-      .container {
+      .font {
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      }
+
+      .hole-container {
         display: flex;
         flex-wrap: wrap;
         width: 510px;
         height: 510px;
+        border: solid black 1px;
         background-color: rgb(250, 209, 159);
       }
 
@@ -37,6 +45,7 @@
         font-size: 30px;
         margin: 20px;
       }
+
       .hole {
         width: 100px;
         height: 100px;
@@ -46,56 +55,69 @@
         text-align: center;
       }
       button {
-        width: 70px;
-        height: 35px;
+        width: 120px;
+        height: 50px;
+        background-color: rgb(250, 209, 159);
+        border-radius: 10px;
+        box-shadow: 2px 2px black;
+        font-size: 20px;
+        margin-top: 5px;
+      }
+      #reset-button {
+        float: right;
       }
     </style>
   </head>
   <body>
-    <div class="time-score">
-      <div class="counter">
-        <h2>Timer</h2>
-        <p class="seconds">20</p>
+    <div class="container font" id="whack-a-mole">
+      <div class="time-score">
+        <div class="counter">
+          <h2>Timer</h2>
+          <p class="seconds font">20</p>
+        </div>
+
+        <div class="counter">
+          <h2>Score</h2>
+          <p class="score-count font" id="score">0</p>
+        </div>
       </div>
 
-      <div class="counter">
-        <h2>Score</h2>
-        <p class="score-count" id="score">0</p>
+      <div class="hole-container">
+        <div class="hole" id="1"></div>
+        <div class="hole" id="2"></div>
+        <div class="hole" id="3"></div>
+        <div class="hole" id="4"></div>
+        <div class="hole" id="5"></div>
+
+        <div class="hole" id="6"></div>
+        <div class="hole" id="7"></div>
+        <div class="hole" id="8"></div>
+        <div class="hole" id="9"></div>
+        <div class="hole" id="10"></div>
+
+        <div class="hole" id="11"></div>
+        <div class="hole" id="12"></div>
+        <div class="hole" id="13"></div>
+        <div class="hole" id="14"></div>
+        <div class="hole" id="15"></div>
+
+        <div class="hole" id="16"></div>
+        <div class="hole" id="17"></div>
+        <div class="hole" id="18"></div>
+        <div class="hole" id="19"></div>
+        <div class="hole" id="20"></div>
+
+        <div class="hole" id="21"></div>
+        <div class="hole" id="22"></div>
+        <div class="hole" id="23"></div>
+        <div class="hole" id="24"></div>
+        <div class="hole" id="25"></div>
       </div>
+      <button class="button font" id="start-button" value="Start">Start</button>
+      <button class="button font" id="reset-button" value="New Game">
+        New Game
+      </button>
     </div>
-
-    <div class="container">
-      <div class="hole" id="1">1</div>
-      <div class="hole" id="2">2</div>
-      <div class="hole" id="3">3</div>
-      <div class="hole" id="4">4</div>
-      <div class="hole" id="5">5</div>
-
-      <div class="hole" id="6">6</div>
-      <div class="hole" id="7">7</div>
-      <div class="hole" id="8">8</div>
-      <div class="hole" id="9">9</div>
-      <div class="hole" id="10">10</div>
-
-      <div class="hole" id="11">11</div>
-      <div class="hole" id="12">12</div>
-      <div class="hole" id="13">13</div>
-      <div class="hole" id="14">14</div>
-      <div class="hole" id="15">15</div>
-
-      <div class="hole" id="16">16</div>
-      <div class="hole" id="17">17</div>
-      <div class="hole" id="18">18</div>
-      <div class="hole" id="19">19</div>
-      <div class="hole" id="20">20</div>
-
-      <div class="hole" id="21">21</div>
-      <div class="hole" id="22">22</div>
-      <div class="hole" id="23">23</div>
-      <div class="hole" id="24">24</div>
-      <div class="hole" id="25">25</div>
-    </div>
-    <button id="start-button" value="Start">Start</button>
 
     <script src="./whack-mole.js" ;></script>
   </body>

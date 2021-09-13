@@ -17,6 +17,9 @@ let startButton = document.querySelector("#start-button");
 startButton.addEventListener("click", countdown);
 startButton.addEventListener("click", moleCycle);
 
+let resetButton = document.querySelector("#reset-button");
+resetButton.addEventListener("click", gameReset);
+
 function countdown() {
   timer = setInterval(() => {
     time--;
@@ -25,6 +28,7 @@ function countdown() {
       clearInterval(timer);
       gameTimer.textContent = `GAME OVER`;
       console.log(gameTimer.textContent);
+      startButton.removeEventListener("click", countdown);
     }
   }, 1000);
 }
@@ -38,7 +42,7 @@ function moleCycle() {
     activeHole.classList.remove("mole");
     if (time === 0) {
       clearTimeout;
-    } else setTimeout(moleCycle, 500);
+    } else setTimeout(moleCycle, 700);
   }, 900);
 }
 
@@ -50,3 +54,11 @@ holes.forEach((e) => {
     }
   });
 });
+
+function gameReset() {
+  time = 20;
+  score = 0;
+  scoreKeeper.textContent = `${score}`;
+  gameTimer.textContent = `${time}`;
+  startButton.addEventListener("click", countdown);
+}
