@@ -13,11 +13,11 @@ let scoreKeeper = document.querySelector(".score-count");
 let score = 0;
 scoreKeeper.textContent = `${score}`;
 
-let noviceButton = document.querySelector("#novice-button");
+let noviceButton = document.querySelector(".novice-button");
 noviceButton.addEventListener("click", countdown);
 noviceButton.addEventListener("click", moleNovice);
 
-let expertButton = document.querySelector("#expert-button");
+let expertButton = document.querySelector(".expert-button");
 expertButton.addEventListener("click", countdown);
 expertButton.addEventListener("click", moleExpert);
 
@@ -39,6 +39,8 @@ function countdown() {
 
 function moleNovice() {
   let activeHole = holes[Math.floor(Math.random() * holes.length)];
+  noviceButton.style.visibility = "hidden";
+  expertButton.style.visibility = "hidden";
   activeHole.style.backgroundColor = "#f7b05b";
   activeHole.classList.add("mole");
   resetButton.removeEventListener("click", gameReset);
@@ -54,6 +56,8 @@ function moleNovice() {
 
 function moleExpert() {
   let activeHole = holes[Math.floor(Math.random() * holes.length)];
+  noviceButton.style.visibility = "hidden";
+  expertButton.style.visibility = "hidden";
   activeHole.style.backgroundColor = "#f7b05b";
   activeHole.classList.add("mole");
   resetButton.removeEventListener("click", gameReset);
@@ -63,7 +67,7 @@ function moleExpert() {
     if (time === 0) {
       clearTimeout;
       resetButton.addEventListener("click", gameReset);
-    } else setTimeout(moleExpert, 500);
+    } else setTimeout(moleExpert, 400);
   }, 700);
 }
 
@@ -81,6 +85,8 @@ function gameReset() {
   score = 0;
   scoreKeeper.textContent = `${score}`;
   gameTimer.textContent = ":" + `${time}`;
+  noviceButton.style.visibility = "visible";
+  expertButton.style.visibility = "visible";
   noviceButton.addEventListener("click", countdown);
   expertButton.addEventListener("click", countdown);
 }
